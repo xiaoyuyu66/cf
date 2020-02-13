@@ -1,218 +1,63 @@
-<!doctype html>
-
-<html>
+<html lang="zh-CN" class="translated-ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>5XX错误,源服务器无法连接</title>
-<script crossorigin="anonymous" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-<SCRIPT type="text/javascript">        
-            var maxtime = 6; 
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="robots" content="noindex, nofollow">
+    <title>正在进入深海博客...</title>
+	<style type="text/css">#title h1,body{font-weight:720;font-family:黑体;color:#eee}.divide,.outer{position:absolute;width:100%}#title h1,.trifecta,p,h2,h3,h4,h5{text-align:center}body,html{margin:0;padding:0;font-family:黑体;height:100%}body{font-family:Raleway,Helvetica Neue,Helvetica,sans-serif;font-size:14px;background-color:#101010}p{font-size:1.35em;color:#ddd;margin:10px 0 0}.divide{top:0;padding:0;margin:0;background:#1e5799;background:-moz-linear-gradient(left,#1e5799 0,#f300ff 50%,#e0ff00 100%);background:-webkit-gradient(linear,left top,right top,color-stop(0,#1e5799),color-stop(50%,#f300ff),color-stop(100%,#e0ff00));background:-webkit-linear-gradient(left,#1e5799 0,#f300ff 50%,#e0ff00 100%);background:-o-linear-gradient(left,#1e5799 0,#f300ff 50%,#e0ff00 100%);background:-ms-linear-gradient(left,#1e5799 0,#f300ff 50%,#e0ff00 100%);background:linear-gradient(to right,#1e5799 0,#f300ff 50%,#e0ff00 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#e0ff00', GradientType=1 );height:3px;border-bottom:1px solid #000}.trifecta .one,.trifecta .two,.trifecta>div{background-color:#eee}#title h1{margin:0 auto;padding:0;font-size:62pt;height:120px}#title span{color:#6cc312}.outer{display:table;height:100%}.middle{display:table-cell;vertical-align:middle}.inner{margin-left:auto;margin-right:auto;width:450px}.trifecta{margin:0 auto;font-size:26px;width:80px}.trifecta>div{display:inline-block;width:14px;height:14px;border-radius:100%;-webkit-animation:bdelay 1.4s infinite ease-in-out both;animation:bdelay 1.4s infinite ease-in-out both}.trifecta .one{-webkit-animation-delay:-.32s;animation-delay:-.32s}.trifecta .two{-webkit-animation-delay:-.16s;animation-delay:-.16s}@-webkit-keyframes bdelay{0%,100%,80%{-webkit-transform:scale(0)}40%{-webkit-transform:scale(1)}}@keyframes bdelay{0%,100%,80%{-webkit-transform:scale(0);transform:scale(0)}40%{transform:scale(1);-webkit-transform:scale(1)}}    h1 {font-size: 1.5em; color: #404040; text-align: center;}</style>
+</head>
+<script>
+var message=new Array();message[0]=" ";var reps=2;var speed=240;var p=message.length;var T="";var C=0;var mC=0;var s=0;var sT=null;if(reps<1)reps=1;function animatedTittle(){T=message[mC];A();}
+function A(){s++;if(s>10){s=1;}
+if(s==1){document.title='正'+T+'';}
+if(s==2){document.title='正在'+T+'';}
+if(s==3){document.title='正在进'+T+'';}
+if(s==4){document.title='正在进入'+T+'';}
+if(s==5){document.title='正在进入深'+T+'';}
+if(s==6){document.title='正在进入深海'+T+'';}
+if(s==7){document.title='正在进入深海博'+T+'';}
+if(s==8){document.title='正在进入深海博客'+T+'';}
+if(s==9){document.title='正在进入深海博客..'+T+'';}
+if(s==10){document.title='正在进入深海博客...'+T+'';}
+if(C<(10*reps)){sT=setTimeout("A()",speed);C++;}
+else{C=0;s=0;mC++;if(mC>p-1)mC=0;sT=null;animatedTittle();}}
+animatedTittle();
+            var maxtime = 15; 
             function CountDown() {
                 if (maxtime >= 0) {
                     minutes = Math.floor(maxtime / 60);
                     seconds = Math.floor(maxtime % 60);
-                    msg = "稍候 " + seconds + " 秒";
+                    msg = "服务器失去响应，请稍候 " + seconds + " 秒,再刷新尝试";
                     
-                    if (maxtime == 0){msg = "即将进入！";}
-					document.all["timer"].innerHTML = msg;
+                    if (maxtime == 0){msg = "即将重新刷新！";location.reload() ;}
+			document.all["timer"].innerHTML = msg;
+			
                         --maxtime;
                 } else{
                     clearInterval(timer);
                    
                 }
             }
-            timer = setInterval("CountDown()", 1000);                
-</SCRIPT>
-<SCRIPT>
-//显示ip节点
-$(function() {
-        $.get("/cdn-cgi/trace",
-        function(data) {
-                var sip = data.match(/(ip=?)(\S*)/)[2];
-                var str = data.match(/(colo=?)(\S*)/)[2];
-                var every = [['HKG', 'CloudFlare香港'], ['MFM', 'CloudFlare澳门'], ['BKK', 'CloudFlare曼谷'], ['TPE', 'CloudFlare台北'], ['NRT', 'CloudFlare东京'], ['KIX', 'CloudFlare大阪'], ['ICN', 'CloudFlare仁川'], ['LHR', 'CloudFlare伦敦'], ['SIN', 'CloudFlare新加坡'], ['CDG', 'CloudFlare巴黎'], ['FRA', 'CloudFlare法兰克福'], ['KUL', 'CloudFlare马来西亚'], ['LAX', 'CloudFlare洛杉矶'], ['SJC', 'CloudFlare圣何塞'], ['KBP', 'CloudFlare乌克兰'], ['PRG', 'CloudFlare布拉格']];
-                for (var i = 0; i < every.length; i++) {
-                        if (str == every[i][0]) {
-                                $("#result").append("当前CDN节点:[" + str + "]" + every[i][1] + ",本地IP:" + sip);
-                        }
-                }
-                
-        });
-})
-//控制台
-console.clear();
-console.log('%c访问即代表遵守本站Cookies! ','background:#fff;color:#333;text-shadow:0 0 2px #eee,0 0 3px #eee,0 0 3px #eee,0 0 2px #eee,0 0 3px #eee;');
-console.log('%c如有不适,请您直接关闭本页面. ','background:#fff;color:#333;text-shadow:0 0 2px #eee,0 0 3px #eee,0 0 3px #eee,0 0 2px #eee,0 0 3px #eee;');
- console.log('%c页面加载完毕消耗了'+Math.round(performance.now()*100)/100+'ms','background:#fff;color:#333;text-shadow:0 0 2px #eee,0 0 3px #eee,0 0 3px #eee,0 0 2px #eee,0 0 3px #eee;');
-console.log("%c「Maybe you are my God」", "background:black; color:white; font-size:25px");
-console.log("%c ", "background: url(https://s2.ax1x.com/2020/02/13/1Le8FP.png) no-repeat center;padding-left:500px;padding-bottom: 364px;");
-</SCRIPT>
-<style>
-
-html {
-  height: 100%;
-  min-height: 100%;
-  overflow: hidden;
-}
-html body {
-  background: #333333;
-  background-size: 163px;
-  font: 14px/21px Monaco, sans-serif;
-  color: #999;
-  font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-  height: 100%;
-  min-height: 100%;
-}
-html body a, html body a:visited {
-  text-decoration: none;
-  color: #FF805F;
-}
-html body h4 {
-  margin: 0;
-  color: #666;
-}
-
-.scene {
-  width: 100%;
-  height: 100%;
-  -webkit-perspective: 600;
-          perspective: 600;
-  align-items: normal;
-  align-items: center;
-  justify-content: center;
-}
-.scene svg {
-  width: 300px;
-  height: 300px;
-}
-
-.dc-logo {
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-}
-
-.dc-logo:hover svg {
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-animation: arrow-spin 2.5s 0s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-          animation: arrow-spin 2.5s 0s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-}
-.dc-logo:hover:hover:before {
-  content: '\2764';
-  padding: 6px;
-  font: 10px/1 Monaco, sans-serif;
-  font-size: 10px;
-  color: #00fffe;
-  text-transform: uppercase;
-  position: absolute;
-  left: -70px;
-  top: -30px;
-  white-space: nowrap;
-  z-index: 20px;
-  box-shadow: 0px 0px 4px #222;
-  background: rgba(0, 0, 0, 0.4);
-}
-.dc-logo:hover:hover:after {
-  content: 'Digital Craft';
-  padding: 6px;
-  font: 10px/1 Monaco, sans-serif;
-  font-size: 10px;
-  color: #6E6F71;
-  text-transform: uppercase;
-  position: absolute;
-  right: 0;
-  top: -30px;
-  white-space: nowrap;
-  z-index: 20px;
-  box-shadow: 0px 0px 4px #222;
-  background: rgba(0, 0, 0, 0.4);
-  background-image: none;
-}
-
-@-webkit-keyframes arrow-spin {
-  50% {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-
-@keyframes arrow-spin {
-  50% {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-</style>
-</head>
-<body style="text-align: center;">
-<div style="display:none">
-::CLOUDFLARE_ERROR_500S_BOX::
-</div>
-<a><img style="width: 200px;" src="https://s2.ax1x.com/2020/02/13/1Le8FP.png" /></a>
+            timer = setInterval("CountDown()", 1000);  
+</script>
+<body>
 <h1><div data-translate="checking_browser" id="timer"></div> </h1>
-<p data-translate="allow_5_secs" style="color: #E91E63;font-size: 15px;">源服务器发生5XX错误,您目前无法访问我们</p>	
-<p data-translate="process_is_automatic" style="color: #cc49e2;font-size: 15px;">事件编号：::RAY_ID::<br>您的IP::CLIENT_IP:: ::GEO::</p>
-<h3 style="color: #adadad;" ><small id="result"></small></h3>
-<div class="scene">
-  <svg 
-  version="1.1" 
-  id="dc-spinner" 
-  xmlns="http://www.w3.org/2000/svg" 
-  x="0px" y="0px"
-  width:"38"
-  height:"38"
-  viewBox="0 0 38 38" 
-  preserveAspectRatio="xMinYMin meet"
-  >
-  <text x="14" y="21" font-family="Monaco" font-size="2px" style="font-weight: 500;fill: #f77a70;" fill="grey" id="timer">请稍后刷新重试
-     <animate 
-       attributeName="opacity"
-       values="0;1;0" dur="1.8s"
-       repeatCount="indefinite"/>
-  </text>
-  <path fill="#441000" d="M20,35c-8.271,0-15-6.729-15-15S11.729,5,20,5s15,6.729,15,15S28.271,35,20,35z M20,5.203
-    C11.841,5.203,5.203,11.841,5.203,20c0,8.159,6.638,14.797,14.797,14.797S34.797,28.159,34.797,20
-    C34.797,11.841,28.159,5.203,20,5.203z">
-  </path>
-
-  <path fill="#441000" d="M20,33.125c-7.237,0-13.125-5.888-13.125-13.125S12.763,6.875,20,6.875S33.125,12.763,33.125,20
-    S27.237,33.125,20,33.125z M20,7.078C12.875,7.078,7.078,12.875,7.078,20c0,7.125,5.797,12.922,12.922,12.922
-    S32.922,27.125,32.922,20C32.922,12.875,27.125,7.078,20,7.078z">
-  </path>
-
-  <path fill="#2AA198" stroke="#bb1b51" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20
-			c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
-  <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 20 20"
-        to="360 20 20"
-        calcMode="spline"
-        keySplines="0.4, 0, 0.2, 1"
-        keyTimes="0;1"
-        dur="2s"
-        repeatCount="indefinite" />      
-   </path>
-
-  <path fill="#859900" stroke="#9a61ff" stroke-width="0.2027" stroke-miterlimit="10" d="M7.078,20
-  c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203
-  C12.875,32.922,7.078,27.125,7.078,20z">
-   <animateTransform
-      attributeName="transform"
-      type="rotate"
-      from="0 20 20"
-      to="360 20 20"
-      dur="1.8s"  
-      repeatCount="indefinite" />
-    </path>
-  </svg>
+<div class="divide"></div>
+<div class="outer"><div class="middle"><div class="inner">
+	<div id="title">
+		<h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">深海</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></span></h1>
+	</div>
+	
+	<div id="gs-content" style="display: block;">
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">啊哦，网络波动了一下，请刷新或稍后再试</font></font></p>	
+		<div class="trifecta">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+		</div>
+	</div>
 </div>
-
-</body>
-</html>
+ <div style="display:none;vertical-align: inherit;">
+    ::CLOUDFLARE_ERROR_500S_BOX::
+    </div>
+</body></html>
